@@ -3,7 +3,7 @@ const router = express.Router()
 const { authenticate } = require('../libs/authenticte')
 const { AuthService } = require('../services/auth.service')
 
-router.post('/register',(req,res)=>{
+router.post('/register',authenticate,(req,res)=>{
     const {account, password,email, name, phone} = req.body;
     AuthService.signUp(account,password, email, name, phone)
     .then(user=>res.send({
