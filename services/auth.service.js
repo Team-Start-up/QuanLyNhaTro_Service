@@ -56,7 +56,7 @@ class AuthService {
         const {account, password} = data;
         return this.signIn(account, password)
         .then(async result => {
-            const data = result.token
+            const data = await sign(result.user)
             console.log(data)
             return {
                 user : data,
