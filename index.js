@@ -12,8 +12,10 @@ const {authenticate} = require('./libs/authenticte')
 require('./libs/dbconnect')
 
 const authRouter = require('./router/auth.router')
+const motelRouter = require('./router/motel.router')
 
 app.use('/auth',authRouter)
+app.use('/motel',authenticate,motelRouter)
 
 const PORT = 8080
 app.listen(PORT,()=> console.log(`Server star on port ${PORT}`))
